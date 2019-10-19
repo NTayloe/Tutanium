@@ -1,0 +1,30 @@
+#account_block {
+    background-color: lightgrey;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    max-width: 500px;
+}
+
+.reg_label {
+    font-size: 18pt;
+}
+
+.fa-question-circle {
+    font-size:24px;
+}
+
+#login{
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    max-width: 500px;
+    text-align: center
+}
+
+#title {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 500px;
+}
