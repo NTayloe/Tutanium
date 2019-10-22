@@ -1,3 +1,27 @@
 #search_block {
     margin: 10px auto;
+    max-width: 500px;
+}
+
+.content_block {
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid lightslategray;
+    border-radius: 5px;
+}
+
+.thumbnail {
+    min-width: 200px;
+    max-width: 200px;
+    min-height: 100px;
+    max-height: 100px;
+    background-color: aqua;
+}
+
+.thumb-title {
+    text-align: center;
+}
+
+.thumb-row {
+    padding: 10px;
 }
