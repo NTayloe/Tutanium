@@ -44,6 +44,15 @@
     transform: rotate(0);
 }
 
+#navbarDropdown, #navbarDropdownCaret {
+    background: none!important;
+    border: none;
+}
+
+#navbarDropdownCaret {
+    padding-left: 0px;
+}
+
 /* Footer */
 footer {
     position: relative;
@@ -68,4 +77,3 @@ footer a:hover {
 footer a:active {
     color: #8e1b1b;
 }
-
