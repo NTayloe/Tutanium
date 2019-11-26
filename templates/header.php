@@ -50,13 +50,13 @@
                   </div>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="../html/user_accounts/profile.html">Profile</a>
+                  <a class="nav-link" href="../html/user_accounts/profile.php">Profile</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="../html/user_accounts/login.html">Login</a>
+                  <a class="nav-link" href="../html/user_accounts/login.php">Login</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="../html/user_accounts/register.html">Register</a>
+                  <a class="nav-link" href="../html/user_accounts/register.php">Register</a>
               </li>
           </ul>
           <form class="form-inline my-2 my-lg-0" method="GET" action="">

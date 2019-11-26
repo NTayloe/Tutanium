@@ -6,7 +6,7 @@
             <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
                 <h5 class="text-uppercase">Got something to teach?</h5>
-                <p><a href="/html/user_accounts/register.html">Create an account</a> and make your own tutorials today.</p>
+                <p><a href="/html/user_accounts/register.php">Create an account</a> and make your own tutorials today.</p>
             </div>
             <hr class="clearfix w-100 d-md-none pb-3">
             <div class="col-md-6 mb-md-0 mb-3">
