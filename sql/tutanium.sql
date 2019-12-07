@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 02:32 AM
+-- Generation Time: Dec 07, 2019 at 06:43 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -31,6 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(30) NOT NULL,
+  `firstname` varchar(30) NOT NULL,
+  `lastname` varchar(30) NOT NULL,
   `gender` char(1) NOT NULL DEFAULT 'm',
   `birthday` date NOT NULL,
   `pass` varchar(50) NOT NULL,
@@ -44,9 +46,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `gender`, `birthday`, `pass`, `date_created`, `email`, `recovery_email`, `admin`) VALUES
-(0, 'gillce01', 'm', '1998-07-09', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '2019-11-26', 'gillce01@pfw.edu', '', 1),
-(1, 'admin', 'm', '2019-11-25', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '2019-11-26', 'admin@tutanium', '', 1);
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `gender`, `birthday`, `pass`, `date_created`, `email`, `recovery_email`, `admin`) VALUES
+(1, 'admin', 'test', 'admin', 'm', '2019-11-25', '*4ACFE3202A5FF5CF467898FC58AAB1D615029441', '2019-11-26', 'admin@tutanium', '', 1);
 
 --
 -- Indexes for dumped tables
