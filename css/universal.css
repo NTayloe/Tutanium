@@ -15,23 +15,41 @@
     border-radius: 15px;
 }
 
-/* Categories */
+/* Button Cards */
 .btn-card {
     width: 100%;
     height: 90%;
     padding-top: 20px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     color: black;
     background-color: #cecece;
 }
-
 .btn-card:hover {
     background-color: #eee600;
     color: #b22222;
 }
-
 .btn-card:active {
     background-color: #beb800!important;
+}
+
+/* Drop Zone */
+.drop-zone {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: black;
+    background-color: #f1eeee;
+    border-style: dotted;
+    border-color: gray;
+    border-radius: 7px;
+    border-width: 2px;
+}
+
+/* Button Color */
+.buttonyellow {
+    color: #eee600 !important;
 }
