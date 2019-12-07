@@ -1,8 +1,10 @@
 <?php
-    require_once('../includes/database_interface.php');
-    require_once('../includes/db_connection.php');
+    require_once('../../includes/database_interface.php');
+    require_once('../../includes/db_connection.php');
 
-    session_start();
+    if(!isset($_SESSION)){
+        session_start();
+    }
 
     //if already logged in redirect to the profile page
     if(isset($_SESSION['authenticated']) && $_SESSION["authenticated"] === true){
@@ -30,6 +32,8 @@
             if($result->num_rows === 1){
          
                 $_SESSION["authenticated"] = true;
+                $_SESSION["username"] = $username;
+                echo "log";
                 header("Location: /html/user_accounts/profile.php");
 
             }else{
@@ -58,21 +62,25 @@
 </head>
 <body>
 
-    <?php require_once('../includes/helper.php'); ?>
+    <?php require_once('../../includes/helper.php'); ?>
 
     <?php render('header', array('title' => 'Tutanium')); ?>
 
-    <div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+    <div id="title" style="margin-top: 200px;">
+        <h2>Log In</h2>
+    </div>
+
+    <div class="container" style="margin-bottom: 300px;">
 
         <form id="login_block" class=".text-center" action="<?= $_SERVER["PHP_SELF"] ?>" method="post" onsubmit="return verify();">
 
             <div id="login_cred">
-                <label for="username">Username</label>
+                <label for="username">Username:</label>
                 <input type="text" id="username" name="username" class="form-control" placeholder="Username">    
             </div>
             
             <div id="login_cred">
-                <label for="password">Password</label>
+                <label for="password">Password:</label>
                 <input type="password" id="password" name="password" class="form-control" placeholder="Password">    
             </div>
 

@@ -1,9 +1,11 @@
 <?php
 
-    require_once('../includes/database_interface.php');
-    require_once('../includes/db_connection.php');
+    require_once('../../includes/database_interface.php');
+    require_once('../../includes/db_connection.php');
 
-    session_start();
+    if(!isset($_SESSION)){
+        session_start();
+    }
 
     //if already logged in redirect to the profile page
     if(isset($_SESSION['authenticated']) && $_SESSION["authenticated"] === true){
@@ -79,8 +81,10 @@
         if(!isset($error)){
 
             //add the user to the database
-            $sql = sprintf("INSERT INTO `users`(`username`, `gender`, `birthday`, `pass`, `date_created`, `email`) VALUES ('%s', '%s', '%s', PASSWORD('%s'), '%s', '%s')",
+            $sql = sprintf("INSERT INTO `users`(`username`, `firstname`, `lastname`, `gender`, `birthday`, `pass`, `date_created`, `email`) VALUES ('%s', '%s', '%s', PASSWORD('%s'), '%s', '%s')",
                             $connection->real_escape_string($username),
+                            $connection->real_escape_string($firstName),
+                            $connection->real_escape_string($lastName),
                             $connection->real_escape_string($gender),
                             $connection->real_escape_string($birthDate),
                             $connection->real_escape_string($password1),
@@ -119,7 +123,7 @@
     <title>Register</title>
 </head>
 <body>
-    <?php require_once('../includes/helper.php'); ?>
+    <?php require_once('../../includes/helper.php'); ?>
 
     <?php render('header', array('title' => 'Tutanium')); ?>
 
@@ -127,7 +131,6 @@
 
         <div id="title">
             <h2>Create an Account</h2>
-            todo: remove debug code
             <?php
                 if(isset($error)){
                     echo $error;

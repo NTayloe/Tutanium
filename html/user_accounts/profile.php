@@ -1,6 +1,54 @@
 <?php
     
-    session_start();
+    require_once('../../includes/database_interface.php');
+    require_once('../../includes/db_connection.php');
+
+    if(!isset($_SESSION)){
+        session_start();
+    }
+
+    //if not logged in redirect to the login page
+    if(!isset($_SESSION['authenticated']) || $_SESSION["authenticated"] === false){
+        echo "<script>console.log('not logged in');</script>";
+        header("Location: /html/user_accounts/login.php");
+    }
+
+    //get a database connection
+    $connection = connect_to_db();
+
+    //get the user from the database
+    $sql = sprintf("SELECT * FROM users WHERE username='%s'", $connection->real_escape_string($_SESSION['username']));
+
+    //send the given sql query to the given db connection
+    $result = queryDatabase($sql, $connection);
+
+    //user account data
+    $username;
+    $firstname;
+    $lastname;
+    $birthday;
+    $gender;
+    $accountage;
+    $email;
+    $recoveryemail;
+
+    //did we get a valid user?
+    if($result->num_rows === 1){
+
+        //get the query result as an array
+        $user = $result->fetch_assoc();
+
+        //store the account data we need
+        $username = $user['username'];
+        $firstname =  $user['firstname'];
+        $lastname =  $user['lastname'];
+        $birthday =  $user['birthday'];
+        $gender =  $user['gender'];
+        $accountage =  $user['date_created'];
+        $email =  $user['email'];
+        $recoveryemail =  $user['recovery_email'];
+
+    }
 
 ?>
 
@@ -20,13 +68,13 @@
 </head>
 <body>
 
-    <div class="container">
+    <div class="container" style="margin-top: 100px; margin-bottom: 200px;">
         
-    <?php require_once('../includes/helper.php'); ?>
+    <?php require_once('../../includes/helper.php'); ?>
 
     <?php render('header', array('title' => 'Tutanium')); ?>
 
-        <div id="profile_block" style="margin-top: 100px;">
+        <div id="profile_block" style="margin-bottom: 50px;">
             <div>
                 <div style="display: inline-block;">
                     <h1>Account Info</h1>
@@ -39,19 +87,19 @@
             <table class="table profile-table">
                 <tr>
                     <td><p class="font-weight-light">NAME</p></td>
-                    <td>{User's Name}</td>
+                    <td><?php if(isset($firstname) && isset($lastname)){echo htmlspecialchars($firstname . " " . $lastname);}?></td>
                 </tr>
                 <tr>
                     <td><p class="font-weight-light">BIRTHDAY</p></td>
-                    <td>{Date}</td>
+                    <td><?php if(isset($birthday)){echo htmlspecialchars($birthday);}?></td>
                 </tr>
                 <tr>
                     <td><p class="font-weight-light">GENDER</p></td>
-                    <td>{M/F}</td>
+                    <td><?php if(isset($gender)){echo htmlspecialchars($gender);}?></td>
                 </tr>
                 <tr>
                     <td><p class="font-weight-light">ACCOUNT AGE</p></td>
-                    <td>{Age}</td>
+                    <td><?php if(isset($accountage)){echo htmlspecialchars($accountage);}?></td>
                 </tr>
             </table>
         </div>
@@ -65,11 +113,11 @@
             <table class="table profile-table">
                 <tr>
                     <td><p class="font-weight-light">EMAIL</p></td>
-                    <td>{EMAIL}</td>
+                    <td><?php if(isset($email)){echo htmlspecialchars($email);}?></td>
                 </tr>
                 <tr>
                     <td><p class="font-weight-light">RECOVERY EMAIL</p></td>
-                    <td>{EMAIL}</td>
+                    <td><?php if(isset($recoveryemail)){echo htmlspecialchars($recoveryemail);}?></td>
                 </tr>
                 <tr>
                     <td><p class="font-weight-light">PASSWORD</p></td>
@@ -79,7 +127,7 @@
         </div>
 
         <div id="delete_block">
-            <button type="button" class="btn btn-danger">Delete Account</button>
+            <button type="button" class="btn btn-danger" onclick="window.location = '/html/user_accounts/delete_account.php';">Delete Account</button>
         </div>
 
     </div>

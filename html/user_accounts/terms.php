@@ -12,7 +12,7 @@
     <title>Terms and Conditions</title>
 </head>
 <body>
-    <?php require_once('../includes/helper.php'); ?>
+    <?php require_once('../../includes/helper.php'); ?>
 
     <?php render('header', array('title' => 'Tutanium')); ?>
 
