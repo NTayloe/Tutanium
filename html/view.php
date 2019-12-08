@@ -10,6 +10,8 @@
     $tutorialid = 22; // temporary variable until we can pull in ID
 ?>
 
+<link rel="stylesheet" href="/css/shop-homepage.css">
+
 <div class="container-fluid">
     <?php viewTutorial($connection, $tutorialid); ?> 
 </div>

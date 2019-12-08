@@ -6,68 +6,8 @@
     render('header', array('title' => 'Editor'));
 ?>
 
-<script src="https://kit.fontawesome.com/3c565b20fe.js" crossorigin="anonymous"></script>
-
-<script>
-    // Javascript drag and drop functions //
-
-    let entryNumber = 0;
-
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
-
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function newInputNode(name, placeholder, type) {
-        entryNumber++;
-        let node = document.createElement(type);
-        node.setAttribute('name', name.concat(entryNumber));
-        if (type === "input") {
-            node.setAttribute('class', 'form-control input-sm');
-        } else if (type === "textarea") {
-            node.setAttribute('class', 'form-control');
-        }
-        node.setAttribute('placeholder', placeholder);
-        node.setAttribute('type', 'text');
-
-        return node;
-    }
-
-    function drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        if (data === "dragH") { // Header
-            let node = newInputNode("header", "Header", "input");
-            ev.target.appendChild(node);
-        } else if (data === "dragT") { // Text
-            let node = newInputNode("text", "Text", "textarea");
-            ev.target.appendChild(node);
-        } else if (data === "dragP") { // Picture
-            let node = newInputNode("picture", "Picture (Link)", "input");
-            ev.target.appendChild(node);
-        } else if (data === "dragV") { // Video
-            let node = newInputNode("video", "Video (Embed link)", "input");
-            ev.target.appendChild(node);
-        }
-        let dropBox = document.getElementById('dropzone');
-        dropBox.setAttribute('style', 'height: 100%'); // increase size of drop box when items are dropped
-    }
-
-    function fieldsNotEmpty() {
-        if (document.getElementById("tutorialtitle").value === "" || document.getElementById("tutorialdescription").value === "") {
-            let node = document.getElementById("errordiv");
-            if (node.hasChildNodes()) {
-                node.removeChild(node.lastChild);
-            }
-            let errorText = document.createTextNode("You must provide a title and description.");
-            node.appendChild(errorText);
-            return false;
-        }
-    }
-</script>
+<link rel="stylesheet" href="/css/shop-homepage.css">
+<script src="editor.js"></script>
 
 <style>
     ul {
@@ -156,43 +96,42 @@
                     </div>
                     <div class="col-sm-4">
                         <!-- Basic tutorial info -->
-                            <fieldset>
-                                <h3>Tutorial details:</h3>
-                                <input name="title" id="tutorialtitle" class="form-control input-sm" type="text" placeholder="Title"/><br />
-                                <textarea name="description" id="tutorialdescription" class="form-control" placeholder="Description" rows="2" cols="40"></textarea><br />
-                                <div class="form-group form-inline" style="text-align: center">
-                                    <label for="category" class="col-sm-2 control-label">Category</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="category">
-                                            <?php 
-                                                foreach ($CATEGORIES as $cat)
-                                                {
-                                                    if (isset($_POST["category"]) && $_POST["category"] == $cat)
-                                                        echo "<option selected='selected value='$cat'>$cat</option>";
-                                                    else
-                                                        echo "<option value='$cat'>$cat</option>";
-                                                }
-                                            ?>
-                                        </select>
-                                    </div>
+                        <fieldset>
+                            <h3>Tutorial details:</h3>
+                            <input name="title" id="tutorialtitle" class="form-control input-sm" type="text" placeholder="Title"/><br />
+                            <textarea name="description" id="tutorialdescription" class="form-control" placeholder="Description" rows="2" cols="40"></textarea><br />
+                            <div class="form-group form-inline" style="text-align: center">
+                                <label for="category" class="col-sm-2 control-label">Category</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="category">
+                                        <?php 
+                                            foreach ($CATEGORIES as $cat)
+                                            {
+                                                if (isset($_POST["category"]) && $_POST["category"] == $cat)
+                                                    echo "<option selected='selected value='$cat'>$cat</option>";
+                                                else
+                                                    echo "<option value='$cat'>$cat</option>";
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
-                            </fieldset>
-                            <fieldset>
-                                <!-- Save and publish buttons --><br />
-                                <input name="save" type="submit" value="Save" class="btn btn-light" role="button">
-                                <input name="publish" class="btn btn-warning" type="submit" value="Publish" role="button">
-                                <div id="errordiv" style="color: red"></div>
-                                <?php if (isset($emptyTutorial)): ?>
-                                    <div style="color: red">You cannot submit an empty tutorial.</div>
-                                <?php endif ?>
-                                <?php if (isset($errorPrint)): ?>
-                                    <div style="color: red"><?php echo $errorPrint ?></div>
-                                <?php endif ?>
-                            </fieldset>
-                        </form>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <!-- Save and publish buttons --><br />
+                            <input name="save" type="submit" value="Save" class="btn btn-light" role="button">
+                            <input name="publish" class="btn btn-warning" type="submit" value="Publish" role="button">
+                            <div id="errordiv" style="color: red"></div>
+                            <?php if (isset($emptyTutorial)): ?>
+                                <div style="color: red">You cannot submit an empty tutorial.</div>
+                            <?php endif ?>
+                            <?php if (isset($errorPrint)): ?>
+                                <div style="color: red"><?php echo $errorPrint ?></div>
+                            <?php endif ?>
+                        </fieldset>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
