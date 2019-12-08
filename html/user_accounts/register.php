@@ -81,7 +81,7 @@
         if(!isset($error)){
 
             //add the user to the database
-            $sql = sprintf("INSERT INTO `users`(`username`, `firstname`, `lastname`, `gender`, `birthday`, `pass`, `date_created`, `email`) VALUES ('%s', '%s', '%s', PASSWORD('%s'), '%s', '%s')",
+            $sql = sprintf("INSERT INTO `users`(`username`, `firstname`, `lastname`, `gender`, `birthday`, `pass`, `date_created`, `email`) VALUES ('%s', '%s', '%s', '%s', '%s', PASSWORD('%s'), '%s', '%s')",
                             $connection->real_escape_string($username),
                             $connection->real_escape_string($firstName),
                             $connection->real_escape_string($lastName),
@@ -98,6 +98,8 @@
             }
 
             $_SESSION["authenticated"] = true;
+            $_SESSION['username'] = $username;
+            header("Location: /html/user_accounts/profile.php");
 
         }
 
