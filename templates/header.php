@@ -56,7 +56,7 @@
                                 <a class="dropdown-item" href="#">Technology</a>
                                 <a class="dropdown-item" href="#">Science</a>
                                 <a class="dropdown-item" href="#">Math</a>
-                                <a class="dropdown-item" href="#">Art</a>
+                                <a class="dropdown-item" href="/html/art.php">Art</a>
                                 <a class="dropdown-item" href="#">Food</a>
                                 <a class="dropdown-item" href="#">Lifestyle</a>
                                 <a class="dropdown-item" href="#">Nature</a>
