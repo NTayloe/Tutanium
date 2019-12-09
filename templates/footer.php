@@ -13,10 +13,10 @@
                 <h5 class="text-uppercase">Visit</h5>
                 <ul class="list-unstyled">
                 <li>
-                    <a href="../html/about.php">About</a>
+                    <a href="#">About</a>
                 </li>
                 <li>
-                    <a href="../html/contact.php">Contact</a>
+                    <a href="#">Contact</a>
                 </li>
                 <li>
                     <a href="#">Profile</a>
