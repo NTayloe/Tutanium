@@ -44,7 +44,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tutorials</a>
+                        <a class="nav-link" href="/html/tutorials.php">Tutorials</a>
                     </li>
                     <li class="nav-item dropdown">
                         <div class="btn-group">

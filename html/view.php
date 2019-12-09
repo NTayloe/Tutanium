@@ -7,7 +7,7 @@
 
     $connection = connect_to_db();
 
-    $tutorialid = 22; // temporary variable until we can pull in ID
+    $tutorialid = 23; // temporary variable until we can pull in ID
 ?>
 
 <link rel="stylesheet" href="/css/shop-homepage.css">
