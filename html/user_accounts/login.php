@@ -33,7 +33,6 @@
          
                 $_SESSION["authenticated"] = true;
                 $_SESSION["username"] = $username;
-                echo "log";
                 header("Location: /html/user_accounts/profile.php");
 
             }else{
