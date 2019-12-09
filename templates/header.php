@@ -58,7 +58,7 @@
                                 <a class="dropdown-item" href="#">Math</a>
                                 <a class="dropdown-item" href="#">Art</a>
                                 <a class="dropdown-item" href="#">Food</a>
-                                <a class="dropdown-item" href="/html/lifestyle.html">Lifestyle</a>
+                                <a class="dropdown-item" href="#">Lifestyle</a>
                                 <a class="dropdown-item" href="#">Nature</a>
                                 <a class="dropdown-item" href="#">Music</a>
                                 <a class="dropdown-item" href="#">Exercise</a>

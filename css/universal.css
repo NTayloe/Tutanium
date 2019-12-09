@@ -2,7 +2,7 @@
 .container-fluid {
     margin-left: auto;
     margin-right: auto;
-    padding: 1% 20% 5% 20%
+    padding: 1% 20% 5% 20%;
 }
 
 /* Carousels */
@@ -53,3 +53,57 @@
 .buttonyellow {
     color: #eee600 !important;
 }
+
+ .badge-tech {
+    background-color:blue;
+    color: white;
+  }
+  .badge-science {
+    background-color:lime;
+    color: black;
+  }
+  .badge-math {
+    background-color:black;
+    color: white;
+  }
+  .badge-art {
+    background-color:red;
+    color: white;
+  }
+  .badge-food {
+    background-color:orange;
+    color: white;
+  }
+  .badge-life {
+    background-color:teal;
+    color: white;
+  }
+  .badge-nature {
+    background-color:green;
+    color: white;
+  }
+  .badge-music {
+    background-color:purple;
+    color: white;
+  }
+  .badge-exercise {
+    background-color:coral;
+    color: white;
+  }
+  .badge-social {
+    background-color:plum;
+    color: white;
+  }
+  .badge-health {
+    background-color:crimson;
+    color: white;
+  }
+  .badge-happy{
+    background-color: skyblue;
+    color: white;
+  }
+  .badge-other {
+    background-color:sienna;
+    color: white;
+  }
+
